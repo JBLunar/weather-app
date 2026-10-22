@@ -2,21 +2,26 @@
 <html lang="da">
 <head>
   <meta charset="UTF-8">
+  <!-- Gør siden responsiv på mobil -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Vejrudsigt for 5 dage med data fra Open-Meteo">
-  <meta name="theme-color" content="#1e5fa8">
-  <title>Vejret</title>
-
-  <!-- Al CSS samles i main.css, som importerer resten (atomic design) -->
-  <link rel="stylesheet" href="css/main.css">
-
-  <!-- type="module" gør at vi kan bruge import/export i vores JS-filer -->
-  <script type="module" src="js/app.js"></script>
+  <title>Vejr App</title>
+  <!-- Stien starter med assets/ fordi vores filer ligger der -->
+  <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-  <!-- Hele appen bygges med JavaScript inde i dette element -->
-  <div id="app"></div>
+  <header>
+    <h1>Vejr App</h1>
+  </header>
 
-  <noscript>Denne side kræver JavaScript for at vise vejret.</noscript>
+  <main>
+    <!-- Her vises dagens vejr (1-dags visning) -->
+    <section id="today"></section>
+
+    <!-- Her vises 5-dages udsigten -->
+    <section id="forecast"></section>
+  </main>
+
+  <!-- type="module" gør at vi kan bruge import/export i vores JS -->
+  <script type="module" src="assets/js/app.js"></script>
 </body>
 </html>
