@@ -1,2 +1,7 @@
-// Test: hvis du ser denne besked i konsollen, virker modulet
-console.log('Vejr app kører!');
+// app.js: startknappen for hele appen
+
+// Henter init-funktionen fra controlleren
+import { init } from './controller/weatherController.js';
+
+// Kører init = starter appen
+init();

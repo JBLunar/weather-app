@@ -1,27 +1,35 @@
+<!-- Fortæller browseren at det er en moderne HTML-side -->
 <!DOCTYPE html>
+<!-- Hele siden. lang="da" = siden er på dansk -->
 <html lang="da">
+<!-- head: info OM siden, vises ikke direkte -->
 <head>
+  <!-- Gør at æ, ø og å vises korrekt -->
   <meta charset="UTF-8">
-  <!-- Gør siden responsiv på mobil -->
+  <!-- Gør siden responsiv: på mobil er siden lige så bred som skærmen -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Teksten på fanebladet i browseren -->
   <title>Vejr App</title>
-  <!-- Stien starter med assets/ fordi vores filer ligger der -->
+  <!-- Henter CSS-filen, der bestemmer udseendet -->
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
+<!-- body: alt der vises på skærmen -->
 <body>
+  <!-- Den blå bjælke i toppen -->
   <header>
+    <!-- Sidens hovedoverskrift -->
     <h1>Vejr App</h1>
   </header>
 
+  <!-- Sidens hovedindhold -->
   <main>
-    <!-- Her vises dagens vejr (1-dags visning) -->
+    <!-- Tom kasse: JavaScript sætter "Vejret lige nu" ind her -->
     <section id="today"></section>
-
-    <!-- Her vises 5-dages udsigten -->
+    <!-- Tom kasse: JavaScript sætter "5-dages udsigt" ind her -->
     <section id="forecast"></section>
   </main>
 
-  <!-- type="module" gør at vi kan bruge import/export i vores JS -->
+  <!-- Starter JavaScript. type="module" gør at filerne må bruge import/export -->
   <script type="module" src="assets/js/app.js"></script>
 </body>
 </html>

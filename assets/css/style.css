@@ -1,0 +1,164 @@
+/* Mobil først: CSS'en er skrevet til mobil. @media nederst tilføjer regler til større skærme */
+
+/* ===== Variabler: farver og størrelser ét sted. Bruges med var(--navn) ===== */
+:root {
+  --bg: #e8f1fb;                          /* Baggrundsfarve (lys blå) */
+  --card: #ffffff;                        /* Kortenes farve (hvid) */
+  --text: #1d2a3a;                        /* Normal tekstfarve */
+  --muted: #5b6b7f;                       /* Svagere grå tekst */
+  --accent: #2f6fdf;                      /* Blå hovedfarve */
+  --radius: 16px;                         /* Hvor runde hjørnerne er */
+  --gap: 1rem;                            /* Standard afstand */
+  --shadow: 0 2px 8px rgb(0 0 0 / 0.08);  /* Svag skygge under kortene */
+}
+
+/* Alle elementer: padding gør ikke elementer bredere end vi har sagt */
+* {
+  box-sizing: border-box;
+}
+
+/* Hele siden */
+body {
+  margin: 0;                           /* Fjern browserens kant rundt om siden */
+  font-family: system-ui, sans-serif;  /* Brug enhedens egen skrifttype */
+  background: var(--bg);               /* Baggrundsfarve */
+  color: var(--text);                  /* Tekstfarve */
+  line-height: 1.4;                    /* Luft mellem tekstlinjer */
+}
+
+/* ===== Header: den blå bjælke ===== */
+header {
+  background: var(--accent);  /* Blå baggrund */
+  color: white;               /* Hvid tekst */
+  padding: 1rem;              /* Luft indeni */
+  text-align: center;         /* Centrér teksten */
+}
+
+/* Titlen i headeren */
+header h1 {
+  margin: 0;          /* Fjern standard-afstand */
+  font-size: 1.5rem;  /* Størrelse på mobil */
+}
+
+/* ===== Hovedindhold ===== */
+main {
+  max-width: 1100px;    /* Aldrig bredere end 1100px */
+  margin: 0 auto;       /* Centrér på siden */
+  padding: var(--gap);  /* Luft rundt om */
+  display: grid;        /* Stabler sektionerne */
+  gap: 2rem;            /* Afstand mellem "lige nu" og "5 dage" */
+}
+
+/* Sektionernes overskrifter */
+h2 {
+  margin: 0 0 var(--gap);  /* Kun afstand i bunden */
+  font-size: 1.25rem;      /* Størrelse */
+}
+
+/* ===== Organisme: Vejret lige nu ===== */
+.today {
+  background: var(--card);       /* Hvid boks */
+  border-radius: var(--radius);  /* Runde hjørner */
+  box-shadow: var(--shadow);     /* Skygge */
+  padding: 1.5rem;               /* Luft indeni */
+  text-align: center;            /* Centrér teksten */
+}
+
+/* Rækken med ikon og temperatur */
+.today-main {
+  display: flex;            /* Flexbox: sætter tingene ved siden af hinanden */
+  justify-content: center;  /* Centrér vandret */
+  align-items: center;      /* Centrér lodret */
+  gap: 1rem;                /* Afstand mellem ikon og temperatur */
+}
+
+/* Det store ikon */
+.today-main .weather-icon {
+  font-size: 4rem;  /* Emojis er tekst, så font-size gør dem større */
+}
+
+/* Den store temperatur */
+.today-main .temperature {
+  font-size: 3.5rem;  /* Stor skrift */
+  font-weight: 700;   /* Fed skrift */
+}
+
+/* Vejrtypen som tekst, fx "Regn" */
+.description {
+  color: var(--muted);  /* Grå */
+  margin: 0.25rem 0;    /* Lidt luft over og under */
+}
+
+/* Linjen med vind og nedbør */
+.today-details {
+  margin: 0;  /* Fjern standard-afstand */
+}
+
+/* ===== Organisme: 5-dages udsigt ===== */
+.forecast-list {
+  display: grid;               /* Grid: placerer kortene i kolonner */
+  grid-template-columns: 1fr;  /* Mobil: 1 kolonne */
+  gap: var(--gap);             /* Afstand mellem kortene */
+}
+
+/* ===== Molekyle: Dagskort ===== */
+.day-card {
+  background: var(--card);       /* Hvid boks */
+  border-radius: var(--radius);  /* Runde hjørner */
+  box-shadow: var(--shadow);     /* Skygge */
+  padding: 1rem;                 /* Luft indeni */
+  text-align: center;            /* Centrér teksten */
+  display: flex;                 /* Flexbox */
+  flex-direction: column;        /* Indholdet under hinanden */
+  align-items: center;           /* Centrér vandret */
+  gap: 0.25rem;                  /* Lidt afstand mellem linjerne */
+}
+
+/* Datoen i kortet */
+.day-card h3 {
+  margin: 0;        /* Fjern standard-afstand */
+  font-size: 1rem;  /* Størrelse */
+}
+
+/* Kun første bogstav i datoen */
+.day-card h3::first-letter {
+  text-transform: uppercase;  /* "torsdag" bliver til "Torsdag" */
+}
+
+/* Afsnit i kortet */
+.day-card p {
+  margin: 0;  /* Fjern standard-afstand, så kun gap styrer afstanden */
+}
+
+/* Ikonet i kortet */
+.day-card .weather-icon {
+  font-size: 2.5rem;  /* Mindre end i "lige nu" */
+}
+
+/* Linjen med maks / min */
+.temps {
+  font-weight: 600;  /* Halvfed */
+}
+
+/* ===== Atomer ===== */
+.wind-arrow {
+  margin-right: 0.15rem;  /* Lidt luft mellem pil og tekst */
+}
+
+/* ===== Tablet: gælder kun når skærmen er mindst 600px bred ===== */
+@media (min-width: 600px) {
+  .forecast-list {
+    grid-template-columns: repeat(2, 1fr);  /* 2 kort pr. række */
+  }
+}
+
+/* ===== Computer: gælder kun når skærmen er mindst 1000px bred ===== */
+@media (min-width: 1000px) {
+  header h1 {
+    font-size: 2rem;  /* Større titel */
+  }
+
+  .forecast-list {
+    grid-template-columns: repeat(5, 1fr);  /* Alle 5 dage på én række */
+  }
+}
